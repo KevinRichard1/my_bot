@@ -1,0 +1,4 @@
+Invoking command in '/home/kevin/dev_ws/src/my_bot/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kevin/dev_ws/src/my_bot/build/my_bot -- -j16 -l16
+Invoked command in '/home/kevin/dev_ws/src/my_bot/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/kevin/dev_ws/src/my_bot/build/my_bot -- -j16 -l16
+Invoking command in '/home/kevin/dev_ws/src/my_bot/build/my_bot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kevin/dev_ws/src/my_bot/build/my_bot
+Invoked command in '/home/kevin/dev_ws/src/my_bot/build/my_bot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/kevin/dev_ws/src/my_bot/build/my_bot

@@ -1,7 +1,7 @@
 import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
-from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable  # Make sure SetEnvironmentVariable is imported
+from launch.actions import IncludeLaunchDescription, SetEnvironmentVariable, TimerAction
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.actions import Node
 
@@ -29,10 +29,13 @@ def generate_launch_description():
                         arguments=['-topic', 'robot_description', '-entity', 'my_bot'],
                         output='screen')
 
+    # Add a delay to ensure Gazebo is ready before spawning the entity
+    delay = TimerAction(period=3.0, actions=[spawn_entity])
+
     # Return the LaunchDescription with the set environment variable included
     return LaunchDescription([
         set_libgl,  # Set the environment variable for software rendering
         rsp,
         gazebo,
-        spawn_entity,
+        delay,  # Delay spawn_entity to give Gazebo time to initialize
     ])
