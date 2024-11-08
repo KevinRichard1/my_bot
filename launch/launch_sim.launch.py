@@ -18,6 +18,14 @@ def generate_launch_description():
         )]), launch_arguments={'use_sim_time': 'true'}.items()
     )
 
+    twist_mux_params = os.path.join(get_package_share_directory("my_bot"),'config','twist_mux.yaml')
+    twist_mux = Node(
+            package="twist_mux",
+            executable="twist_mux",
+            parameters=[twist_mux_params, {'use_sim_time': True}],
+            remappings=[('/cmd_vel_out','/diff_cont/cmd_vel_unstamped')]
+        )
+
     # Include the Gazebo launch file
     gazebo = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(
@@ -36,6 +44,7 @@ def generate_launch_description():
     return LaunchDescription([
         set_libgl,  # Set the environment variable for software rendering
         rsp,
+        twist_mux,
         gazebo,
         delay,  # Delay spawn_entity to give Gazebo time to initialize
     ])
