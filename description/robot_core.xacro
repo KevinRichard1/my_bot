@@ -19,11 +19,22 @@
         <color rgba="0 0 0 1"/>
     </material>
 
+    <material name="red">
+        <color rgba="1 0 0 1"/>
+    </material>
+
     <!-- BASE LINK -->
 
-    <link name="base_link">
+    <link name="base_link"/>
 
-    </link>
+    <!--BASE_FOOTPRINT LINK-->
+    <link name="base_footprint"></link>
+
+    <joint name="base_footprint-joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
 
     <!-- CHASSIS LINK -->
 

@@ -30,7 +30,7 @@ def generate_launch_description():
                         output='screen')
 
     # Add a delay to ensure Gazebo is ready before spawning the entity
-    delay = TimerAction(period=3.0, actions=[spawn_entity])
+    delay = TimerAction(period=8.0, actions=[spawn_entity])  # Increased delay time
 
     # Return the LaunchDescription with the set environment variable included
     return LaunchDescription([
